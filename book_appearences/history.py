@@ -6,7 +6,6 @@
 https://warriors.huijiwiki.com/index.php?title=%E8%9B%BE%E7%BF%85&diff=prev&oldid=112476
 https://warriors.huijiwiki.com/index.php?title=%E9%BC%A9%E9%BC%B1%E7%88%AA&diff=prev&oldid=112498
 '''
-import pywikibot
 from re import findall
 import pywikibot
 from pywikibot import pagegenerators
