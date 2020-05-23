@@ -75,8 +75,7 @@ the_book_rank = ALL_BOOKS.index(the_book)
 the_set_rank = ALL_SETS.index(the_set)
 the_book_title = '\n==== 《[[{}]]》 ===='.format(the_book)
 the_set_title = '\n=== {} ==='.format(the_set)
-the_book_text = (the_book_title + '\n{{{{Coming soon}}}}\n\n{{{{章节分隔线}}}}\n'
-                                  .format(the_book))
+the_book_text = (the_book_title + '\n{{{{Coming soon}}}}\n\n{{{{章节分隔线}}}}\n')
 
 site = pywikibot.Site('zh', 'zhwarriorswiki')
 for page in (pagegenerators.LinkedPageGenerator(pywikibot.Page(site, '{}/猫物表'
