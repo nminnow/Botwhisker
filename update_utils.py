@@ -13,17 +13,17 @@ with urllib.request.urlopen(
     context=ctx) as dump:
     graph.parse(format='n3', data=dump.read().decode('utf-8'))
 
-zh2cp_cats_query = graph.query('''
-SELECT ?page ?cat
+zh2cp_characters_query = graph.query('''
+SELECT ?page ?character
 {
-    ?cat wdt:P3 wd:Q622 .
+    ?character wdt:P3/wdt:P4* wd:Q624 .
     ?sitelink schema:inLanguage "zh" ;
-              schema:about ?cat ;
+              schema:about ?character ;
               schema:name ?page .
 }''')
-zh2cp_cats_results = {}
-for row in zh2cp_cats_query:
-    zh2cp_cats_results[row.page.value] = row.cat.rpartition('/')[-1]
+zh2cp_characters_results = {}
+for row in zh2cp_characters_query:
+    zh2cp_characters_results[row.page.value] = row.character.rpartition('/')[-1]
 
 zh2cp_books_query = graph.query('''
 SELECT ?page ?book
@@ -54,7 +54,7 @@ for row in zh2cp_works_query:
             .rpartition('/')[-1])
 
 zh2cp_results = {
-    'cats': zh2cp_cats_results,
+    'characters': zh2cp_characters_results,
     'books': zh2cp_books_results,
     'works': zh2cp_works_results
     }
