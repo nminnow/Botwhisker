@@ -1,5 +1,6 @@
 .DS_Store
 apicache-py3/
+logs/
 mwparserfromhell/
 pwb.py
 pywikibot/
