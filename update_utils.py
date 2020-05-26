@@ -46,8 +46,12 @@ SELECT ?code ?work
 }''')
 zh2cp_works_results = {}
 for row in zh2cp_works_query:
-    zh2cp_works_results[row.code.value.lower().replace('-', '')] = (row.work
-        .rpartition('/')[-1])
+    if '-' in row.code.value:
+        zh2cp_works_results[row.code.value.lower().replace('-', '[') + ']'] = (
+            row.work.rpartition('/')[-1])
+    else:
+        zh2cp_works_results[row.code.value.lower()] = (row.work
+            .rpartition('/')[-1])
 
 zh2cp_results = {
     'cats': zh2cp_cats_results,
