@@ -13,7 +13,7 @@ claim = pywikibot.Claim(repo, 'P96') # death time on timeline
 for page in pagegenerators.CategorizedPageGenerator(pywikibot.Category(site_zh,
     'Category:猫物')):
     print(page.title())
-    item = pywikibot.ItemPage(repo, zh2cp.cats[page.title()])
+    item = pywikibot.ItemPage(repo, zh2cp.characters[page.title()])
     item.get()
     if 'P96' in item.claims: continue
     death_refs =  re.findall('\{\{COD.*\}\}\{\{r\|(.*)\}\}', page.text)
@@ -21,5 +21,6 @@ for page in pagegenerators.CategorizedPageGenerator(pywikibot.Category(site_zh,
     death_time = death_refs[0]
     if '|' in death_time: death_time = death_time[:death_time.index('|')]
     if death_time not in zh2cp.works: continue
+    claim.on_item = None
     claim.setTarget(pywikibot.ItemPage(repo, zh2cp.works[death_time]))
     item.addClaim(claim)
