@@ -1,8 +1,10 @@
 .DS_Store
 apicache-py3/
 mwparserfromhell/
+pwb.py
 pywikibot/
 pywikibot.lwp
+scripts/
 throttle.ctrl
 user-config.py
 utils/__pycache__/
