@@ -15,7 +15,7 @@ characters = []
 for page in pagegenerators.LinkedPageGenerator(pywikibot.Page(site_zh,
     '{0}/猫物表'.format(book))):
     if pywikibot.Category(site_zh, 'Category:猫物') in list(page.categories()):
-        characters.append(zh2cp.cats[page.title()])
+        characters.append(zh2cp.characters[page.title()])
 
 for character in characters:
     claim.setTarget(pywikibot.ItemPage(repo, character))
