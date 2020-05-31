@@ -1,1 +1,2 @@
-2020-5-26 death_time_from_info_death
+2020-5-26 death_time_from_info_death 从猫武士中文维基猫物页面信息栏中死因一栏获取死亡时间并导入至水晶池中相应实体。
+2020-5-31 add_time_for_group_with_starclan 为拥有两个“所属组织”陈述且其中包含“星族”的实体添加“始于时间线/终于时间线：未知值”修饰。
