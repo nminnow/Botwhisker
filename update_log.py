@@ -13,11 +13,11 @@ if __name__ == '__main__':
         if sys.argv[1] == last:
             f.write('{0}-{1}-{2} ..\n'.format(now.year, now.month, now.day))
         else:
-            script = __import__(argv)
+            script = __import__(sys.argv[1])
             f.write('{0}-{1}-{2} {3} {4}\n'.format(now.year, now.month, now.day,
                 sys.argv[1], script.__doc__))
 
         for argv in sys.argv[2:]:
             script = __import__(argv)
             f.write('{0}-{1}-{2} {3} {4}\n'.format(now.year, now.month, now.day,
-                sys.argv[1], script.__doc__))
+                argv, script.__doc__))
