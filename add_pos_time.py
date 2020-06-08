@@ -36,6 +36,7 @@ if __name__ == '__main__':
         item.get()
         if 'P83' not in item.claims: continue # 官职
         for clm in item.claims['P83']:
+            if 'P92' in clm.qualifiers: continue
             if type(clm.getTarget()) != pywikibot.ItemPage: continue
             position = clm.getTarget().title()[5:] # strip out Item: prefix
             if position not in ALL_POSITIONS: continue
