@@ -108,4 +108,4 @@ for page in (pagegenerators.LinkedPageGenerator(pywikibot.Page(site, '{}/猫物�
         if history_page.exists():
             page = history_page
         page.text = add_history(page.text)
-        page.save('添加生平章节：《[[{0}]]》'.format(the_book))
+        page.save('/*生平*/添加章节：《[[{0}]]》'.format(the_book))
