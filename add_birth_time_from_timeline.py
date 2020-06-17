@@ -58,6 +58,7 @@ if __name__ == '__main__':
                 item.addClaim(claim)
 
                 if byear == year and bseason == season: continue
+                item = pywikibot.ItemPage(repo, zh2cp.characters[z])
                 item.get()
                 qualifier = pywikibot.Claim(repo, 'P94') # 时间线位移
                 moon = - (12 * (byear - year) + (bseason - season))
