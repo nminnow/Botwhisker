@@ -16,13 +16,13 @@ def zh2cp():
         graph.parse(format='n3', data=dump.read().decode('utf-8'))
 
     zh2cp_characters_query = graph.query('''
-    SELECT ?page ?character
-    {
-        ?character wdt:P3/wdt:P4* wd:Q624 .
-        ?sitelink schema:inLanguage "zh" ;
-                  schema:about ?character ;
-                  schema:name ?page .
-    }''')
+SELECT ?page ?character
+{
+    ?character wdt:P3/wdt:P4*    wd:Q624 .
+    ?sitelink  schema:inLanguage "zh" ;
+               schema:about      ?character ;
+               schema:name       ?page .
+}''')
     zh2cp_characters_results = {}
     for row in zh2cp_characters_query:
         zh2cp_characters_results[row.page.value] = row.character.rpartition('/')[-1]
@@ -30,10 +30,10 @@ def zh2cp():
     zh2cp_books_query = graph.query('''
     SELECT ?page ?book
     {
-        ?book wdt:P3 wd:Q46 .
+        ?book     wdt:P3            wd:Q46 .
         ?sitelink schema:inLanguage "zh" ;
-                  schema:about ?book ;
-                  schema:name ?page .
+                  schema:about      ?book ;
+                  schema:name       ?page .
     }''')
     zh2cp_books_results = {}
     for row in zh2cp_books_query:
@@ -43,7 +43,7 @@ def zh2cp():
     SELECT ?code ?work
     {
         ?work wdt:P50?/wdt:P3 wd:Q46 ;
-              skos:altLabel ?code .
+              skos:altLabel   ?code .
         FILTER (lang(?code) = "en")
     }''')
     zh2cp_works_results = {}
@@ -62,7 +62,6 @@ def zh2cp():
         }
     with open('utils/zh2cp.py', 'w') as f:
         f.write('# -*- coding: utf-8 -*-\n\n')
-    with open('utils/zh2cp.py', 'a') as f:
         for key in zh2cp:
             f.write('{0} = {1}\n'.format(key, zh2cp[key]))
 
@@ -89,7 +88,6 @@ def cp2zh():
 
     with open('utils/cp2zh.py', 'w') as f:
         f.write('# -*- coding: utf-8 -*-\n\n')
-    with open('utils/cp2zh.py', 'a') as f:
         for key in cp2zh:
             f.write('{0} = {1}\n'.format(key, cp2zh[key]))
 
