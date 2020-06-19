@@ -5,3 +5,6 @@
 2020-6-5 add_position 为猫物实体添加“官职”陈述。
 2020-6-17 add_birth_time_from_timeline 为猫物实体添加获取自“时间轴”条目的“出生于时间线”陈述。
 2020-6-18 ..
+2020-6-19 add_death_time_from_timeline 为猫物实体添加获取自“时间轴”条目的“死亡于时间线”陈述。
+2020-6-19 ..
+2020-6-19 allegiance_to_characters 按照猫武士中文维基对应猫物表页面为图书实体添加“登场角色”陈述。
