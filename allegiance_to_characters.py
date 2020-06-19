@@ -7,7 +7,6 @@ from utils import zh2cp
 site_zh = pywikibot.Site('zh', 'zhwarriorswiki')
 site_cp = pywikibot.Site('en', 'crystalpool')
 repo = site_cp.data_repository()
-claim = pywikibot.Claim(repo, 'P119') # characters
 book = input('请输入书籍名称（例如“日落和平”）：')
 item = pywikibot.ItemPage(repo, input('请输入书籍实体QID（例如“Q144”）：'))
 
@@ -18,5 +17,6 @@ for page in pagegenerators.LinkedPageGenerator(pywikibot.Page(site_zh,
         characters.append(zh2cp.characters[page.title()])
 
 for character in characters:
+    claim = pywikibot.Claim(repo, 'P119') # characters
     claim.setTarget(pywikibot.ItemPage(repo, character))
     item.addClaim(claim)
