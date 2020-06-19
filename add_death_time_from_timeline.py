@@ -3,7 +3,7 @@
 import pywikibot
 from utils import cp2zh
 from utils import zh2cp
-from utils.timeline.years import years as timeline
+from utils.timeline_by_time import years as timeline
 
 def main():
     cp = pywikibot.Site('en', 'crystalpool')
